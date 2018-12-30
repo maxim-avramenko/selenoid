@@ -1,0 +1,8 @@
+.idea
+.env
+cm
+!.gitkeep
+/data/logs
+/data/video
+/data/config
+/temp.log

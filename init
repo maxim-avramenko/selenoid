@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# create docker network teamcity
+docker network create selenium
+
+# create .env file with DOMAIN_NAME and POSTGRES_PASSWORD
+> ./.env
+
+# Set up variables with user values
+echo -e "DOMAIN_NAME="${1} >> ./.env
+
+# get selenoid configuration manager
+if [ ! -f ./cm ]; then
+    curl -s https://aerokube.com/cm/bash | bash
+fi
+
+# echo selenoid help
+#./cm help
+
+# start TeamCity server
+docker-compose up -d
+
+# echo service list and current status to stdout
+docker ps --format "table {{.Names}}\t{{.Status}}"
