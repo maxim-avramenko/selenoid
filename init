@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # create docker network teamcity
-docker network create selenium
+docker network create selenoid
 
 # create .env file with DOMAIN_NAME and POSTGRES_PASSWORD
 > ./.env
